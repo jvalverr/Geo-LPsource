@@ -20,4 +20,4 @@ All the source code of Geo-LPsource will be available after the official publica
 References
 ==========
 
-.. [1] Valverde-Rebaza J., Roche M., Poncelet P. and Lopes A.: Exploiting Social and Mobility Patterns for Friendship Prediction in Location-Based Social Networks. The 23rd International Conference on Pattern Recognition (ICPR 2016). to be published.
+.. [1] Valverde-Rebaza J., Roche M., Poncelet P. and Lopes A.: Exploiting Social and Mobility Patterns for Friendship Prediction in Location-Based Social Networks. In The 23rd International Conference on Pattern Recognition (ICPR 2016). To be published.
