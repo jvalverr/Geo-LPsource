@@ -10,9 +10,11 @@ LPsource is free software: you can redistribute it and/or modify it under the te
 
 About
 =====
-Geo-LPsource is a link prediction framework built for work over Location-based Social Networks (LBSNs). Geo-LPsource implements different link prediction methods from the literature for predict different types of new relationships among users of LBSNs. Considering the context of friendship prediction, we also implement some innovative methods, such as: Within and Outside of Common Places (WOCP), Common Neighbors of Places (CNP), and Total and Partial Overlapping of Places (TPOP), which are published by [1]_.
+Geo-LPsource is a link prediction framework built for work over Location-based Social Networks (LBSNs). Geo-LPsource implements different link prediction methods from the literature for predict different types of new relationships among users of LBSNs. Considering the context of friendship prediction, we also implement some innovative methods based on combine social and mobility patterns, such as: Within and Outside of Common Places (WOCP), Common Neighbors of Places (CNP), and Total and Partial Overlapping of Places (TPOP), which are published by [1]_.
 
-
+Note
+=====
+All the source code of Geo-LPsource will be available after the official publication of the paper [1]_, i.e. approximately in middle of December, 2016.
 
 
 References
