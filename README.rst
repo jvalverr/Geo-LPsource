@@ -26,9 +26,9 @@ The following steps describe the process to quickly use the automated build syst
 Input files
 ============
 
-As previously mentiones, Geo-LPsource need of two input files to can work. The first file is the edges file containing all the existent links forming the network and representing the existent friendships among the users. Therefore, this file contains a sorted list of pairs of users. Each line in this file contains a pair of users with indices starting from 0. An example of the format of this file can be found at data/MyNetwork_edges.txt.
+As previously mentiones, Geo-LPsource need of two input files to can work. The first file is the edges file containing all the existent links forming the network and representing the existent friendships among the users. Therefore, this file contains a sorted list of pairs of users. Each line in this file contains a pair of users with indices starting from 0. An example of the format of this file can be found in data/MyNetwork_edges.txt.
 
-
+The second file contains all the check-ins made by each one of the users. Therefore, each line of this file contains the index of the user, the date of the check-in, latitude and longitude of the location where the check-in was made, and the label of the check-in. The labels of the check-ins start from 0. An example of the format of this file can be found in data/MyNetwork_checkins.txt.
 
 
 References
