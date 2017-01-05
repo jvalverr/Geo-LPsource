@@ -18,21 +18,23 @@ have received a copy of the GNU General Public License along with Geo-LPsource. 
 ------------------------------------------------
 */
 
-#ifndef COMMONLOCATIONSLP_H_INCLUDED
-#define COMMONLOCATIONSLP_H_INCLUDED
+#include "JaccardPlacesLP.h"
 
-#include "../Network.h"
-#include "LinkPredictor.h"
+JaccardPlacesLP::JaccardPlacesLP( const Network& network ) : LinkPredictor(network) {
+}
 
-class CommonLocationsLP : public LinkPredictor {
-	private:
-	protected:
-	public:
-		CommonLocationsLP( const Network& );
-		~CommonLocationsLP();
-		virtual double generateScore( index_v, index_v );
-};
+JaccardPlacesLP::~JaccardPlacesLP() {
+}
 
+double JaccardPlacesLP::generateScore( index_v indexVertex1, index_v indexVertex2 ) {
+   double nintersect = network.getIntersectPlaces(indexVertex1, indexVertex2).size();
 
+   if( nintersect == 0 )
+        return 0.0;
 
-#endif // COMMONLOCATIONSLP_H_INCLUDED
+   double njunction = network.getVisitedPlaces(indexVertex1).size() + network.getVisitedPlaces(indexVertex2).size() - nintersect;
+   if( njunction == 0 )
+        return 0.0;
+
+   return nintersect/njunction;
+}

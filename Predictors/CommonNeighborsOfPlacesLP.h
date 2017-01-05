@@ -4,10 +4,11 @@ Copyright (C) 2016-2017 by Jorge C. Valverde-Rebaza
 Email: jvalverr@icmc.usp.br
 This file is part of Geo-LPsource.
 
-The code to calculate this link prediction measure is based on the paper [5].
+The code to calculate this link prediction measure is based on the paper [2].
 
-[5] S. Scellato, A. Noulas, C. Mascolo, Exploiting place features in link prediction
-on location-based social networks. In Proc. of ACM KDD, 2011, pp. 1046-1054
+[2] Jorge Valverde-Rebaza and Mathieu Roche and Pascal Poncelet and Alneu Lopes. "Exploiting social
+    and mobility patterns for friendship prediction in location-based social networks". In Proc. of
+    Int. Conf. on Pattern Recognition (ICPR 2016), 2016, to be published.
 
 Geo-LPsource is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License
 as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
@@ -17,19 +18,20 @@ have received a copy of the GNU General Public License along with Geo-LPsource. 
 ------------------------------------------------
 */
 
-#ifndef ADAMICADARENTROPYLP_H_INCLUDED
-#define ADAMICADARENTROPYLP_H_INCLUDED
+
+#ifndef COMMONNEIGHBORSOFPLACESLP_H_INCLUDED
+#define COMMONNEIGHBORSOFPLACESLP_H_INCLUDED
 
 #include "../Network.h"
 #include "LinkPredictor.h"
 
-class AdamicAdarEntropyLP : public LinkPredictor {
+class CommonNeighborsOfPlacesLP : public LinkPredictor {
 	private:
 	protected:
 	public:
-		AdamicAdarEntropyLP( const Network& );
-		~AdamicAdarEntropyLP();
-		virtual double generateScore( index_v, index_v );
+		CommonNeighborsOfPlacesLP( const Network& );
+		~CommonNeighborsOfPlacesLP();
+		double generateScore( index_v, index_v );
 };
 
-#endif // ADAMICADARENTROPYLP_H_INCLUDED
+#endif // COMMONNEIGHBORSOFPLACESLP_H_INCLUDED
