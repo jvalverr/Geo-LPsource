@@ -19,9 +19,16 @@ To build Geo-LPsource and prepare it for use, you must execute the Makefile file
 The following steps describe the process to quickly use the automated build system for link prediction on sample data sets:
 
 1. Follow the instructions above to prepare the Geo-LPsource binary
-2. Save the network to use into the directory ./data. The network consist of two files: the edges files and the check-ins file.
+2. Save the network to use into the directory ./data. The network consist of two files: the edges file and the check-ins file.
 3. Execute the binary file of Geo-LPsource using directly the command './bin' or 'nohup ./bin > geo-lpsource.log &' to execute the binary as background (recommended for large scale networks)
 4. After the execution, find into the directory ./output the ouput files (one for each link prediction measure) containing, each one, a list of predicted links and their corresponding scores. The statistics file containing the main statistics of the network as well as the files containing the evaluation metrics results will be in this directory too.
+
+Input files
+============
+
+As previously mentiones, Geo-LPsource need of two input files to can work. The first file is the edges file containing all the existent links forming the network and representing the existent friendships among the users. Therefore, this file contains a sorted list of pairs of users. Each line in this file contains a pair of users with indices starting from 0. An example of the format of this file can be found at data/MyNetwork_edges.txt.
+
+
 
 
 References
