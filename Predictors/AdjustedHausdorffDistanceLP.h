@@ -1,13 +1,13 @@
 /*
 ------------------------------------------------
-Copyright (C) 2016-2017 by Jorge C. Valverde-Rebaza
+Copyright (C) 2016-2019 by Jorge C. Valverde-Rebaza
 This file is part of Geo-LPsource.
 
-The code to calculate this link prediction measure is based on the paper [2].
+The code to calculate this link prediction measure is based on the paper [5].
 
-[2] Jorge Valverde-Rebaza and Mathieu Roche and Pascal Poncelet and Alneu Lopes. "Exploiting social
-    and mobility patterns for friendship prediction in location-based social networks". In Proc. of
-    Int. Conf. on Pattern Recognition (ICPR 2016), 2016, pp.2526--2531.
+[7] Zhang, Y., Pang, J. Distance and friendship: A distance-based model for link prediction in
+    social networks. Proceedings of the 17th asia-pacific web conference: Web technologies and
+	applications, APWeb, 2015, Springer, pp. 55–66.
 
 Geo-LPsource is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License
 as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
@@ -17,20 +17,22 @@ have received a copy of the GNU General Public License along with Geo-LPsource. 
 ------------------------------------------------
 */
 
+#ifndef ADJUSTEDHAUSDORFFDISTANCELP_H_INCLUDED
+#define ADJUSTEDHAUSDORFFDISTANCELP_H_INCLUDED
 
-#ifndef COMMONNEIGHBORSOFPLACESLP_H_INCLUDED
-#define COMMONNEIGHBORSOFPLACESLP_H_INCLUDED
 
 #include "../Network.h"
 #include "LinkPredictor.h"
 
-class CommonNeighborsOfPlacesLP : public LinkPredictor {
+class AdjustedHausdorffDistanceLP : public LinkPredictor {
 	private:
+        double ceilAH;
 	protected:
 	public:
-		CommonNeighborsOfPlacesLP( const Network& );
-		~CommonNeighborsOfPlacesLP();
-		double generateScore( index_v, index_v );
+		AdjustedHausdorffDistanceLP( const Network& );
+		~AdjustedHausdorffDistanceLP();
+		virtual double generateScore( index_v, index_v );
 };
 
-#endif // COMMONNEIGHBORSOFPLACESLP_H_INCLUDED
+
+#endif // ADJUSTEDHAUSDORFFDISTANCELP_H_INCLUDED

@@ -1,7 +1,6 @@
 /*
 ------------------------------------------------
-Copyright (C) 2016-2017 by Jorge C. Valverde-Rebaza
-Email: jvalverr@icmc.usp.br
+Copyright (C) 2016-2019 by Jorge C. Valverde-Rebaza
 This file is part of Geo-LPsource.
 
 The code to calculate this link prediction measure is based on the paper [5].
@@ -32,7 +31,7 @@ double AdamicAdarEntropyLP::generateScore( index_v indexVertex1, index_v indexVe
     for(index_p i = 0; i < vCommonP.size(); i++){
         double entropy = network.getEntropyOfPlace( vCommonP[i] );
         if( entropy != 0 )
-            aaE += 1.0/entropy;
+            aaE += 1.0/(log10(entropy));
     }
 
     return aaE;

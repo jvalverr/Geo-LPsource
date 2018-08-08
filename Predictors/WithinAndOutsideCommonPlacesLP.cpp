@@ -1,14 +1,13 @@
 /*
 ------------------------------------------------
-Copyright (C) 2016-2017 by Jorge C. Valverde-Rebaza
-Email: jvalverr@icmc.usp.br
+Copyright (C) 2016-2019 by Jorge C. Valverde-Rebaza
 This file is part of Geo-LPsource.
 
 The code to calculate this link prediction measure is based on the paper [2].
 
 [2] Jorge Valverde-Rebaza and Mathieu Roche and Pascal Poncelet and Alneu Lopes. "Exploiting social
     and mobility patterns for friendship prediction in location-based social networks". In Proc. of
-    Int. Conf. on Pattern Recognition (ICPR 2016), 2016, to be published.
+    Int. Conf. on Pattern Recognition (ICPR 2016), 2016, pp.2526--2531.
 
 Geo-LPsource is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License
 as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
@@ -40,10 +39,10 @@ double WithinAndOutsideCommonPlacesLP::generateScore( index_v indexVertex1, inde
         //we just need know if z had visited at leat one place in common with x and y
         for(index_p i = 0; i < vCommonP.size(); i++){
             for(index_p j = 0; j < vPlaces_z.size(); j++){
-                if( vCommonP[i] < vPlaces_z[j].label )
+                if( (long) vCommonP[i] < vPlaces_z[j].label )
                     j = vPlaces_z.size();
                 else{
-                    if( vCommonP[i] == vPlaces_z[j].label ){
+                    if( (long) vCommonP[i] == vPlaces_z[j].label ){
                         flagIntersect = true;
                         j = vPlaces_z.size();
                         i = vCommonP.size();

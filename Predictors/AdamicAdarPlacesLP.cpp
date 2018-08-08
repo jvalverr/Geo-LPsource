@@ -5,8 +5,8 @@ This file is part of Geo-LPsource.
 
 The code to calculate this link prediction measure is based on the paper [5].
 
-[5] S. Scellato, A. Noulas, C. Mascolo, Exploiting place features in link prediction
-on location-based social networks. In Proc. of ACM KDD, 2011, pp. 1046-1054
+[3] O. Mengshoel, R. Desail, A. Chen, B. Tran, Will we connect again? machine learning for
+    link prediction in mobile social networks. In Proc. of ACM MLG 2013, 2013.
 
 Geo-LPsource is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License
 as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
@@ -16,19 +16,26 @@ have received a copy of the GNU General Public License along with Geo-LPsource. 
 ------------------------------------------------
 */
 
-#ifndef ADAMICADARENTROPYLP_H_INCLUDED
-#define ADAMICADARENTROPYLP_H_INCLUDED
 
-#include "../Network.h"
-#include "LinkPredictor.h"
+#include "AdamicAdarPlacesLP.h"
 
-class AdamicAdarEntropyLP : public LinkPredictor {
-	private:
-	protected:
-	public:
-		AdamicAdarEntropyLP( const Network& );
-		~AdamicAdarEntropyLP();
-		virtual double generateScore( index_v, index_v );
-};
 
-#endif // ADAMICADARENTROPYLP_H_INCLUDED
+AdamicAdarPlacesLP::AdamicAdarPlacesLP( const Network& network ) : LinkPredictor(network) {
+}
+
+AdamicAdarPlacesLP::~AdamicAdarPlacesLP() {
+}
+
+double AdamicAdarPlacesLP::generateScore( index_v indexVertex1, index_v indexVertex2 ) {
+    vector<index_p> vCommonP = network.getIntersectPlaces(indexVertex1, indexVertex2);
+    double aaC = 0;
+
+    for(index_p i = 0; i < vCommonP.size(); i++){
+        double Cpk = network.getTotalCheckinsAtPlace(vCommonP[i]);
+        if(Cpk > 1){
+            aaC += 1.0/(log10(Cpk));
+        }
+    }
+    return aaC;
+}
+

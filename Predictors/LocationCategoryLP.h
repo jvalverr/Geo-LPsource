@@ -5,8 +5,10 @@ This file is part of Geo-LPsource.
 
 The code to calculate this link prediction measure is based on the paper [5].
 
-[5] S. Scellato, A. Noulas, C. Mascolo, Exploiting place features in link prediction
-on location-based social networks. In Proc. of ACM KDD, 2011, pp. 1046-1054
+[6] Luo, H., Guo, B., Zhiwenyu, Wang, Z., Feng, Y. Friendship prediction based on the fusion of
+    topology and geographical features in LBSN. 2013 IEEE 10th Int. Conf. on high performance
+	computing and communications & 2013 IEEE international conference on embedded and ubiquitous
+	computing, HPCC-EUC, 2013, IEEE, pp. 2224–2230.
 
 Geo-LPsource is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License
 as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
@@ -16,19 +18,24 @@ have received a copy of the GNU General Public License along with Geo-LPsource. 
 ------------------------------------------------
 */
 
-#ifndef ADAMICADARENTROPYLP_H_INCLUDED
-#define ADAMICADARENTROPYLP_H_INCLUDED
+#ifndef LOCATIONCATEGORYLP_H_INCLUDED
+#define LOCATIONCATEGORYLP_H_INCLUDED
+
 
 #include "../Network.h"
 #include "LinkPredictor.h"
 
-class AdamicAdarEntropyLP : public LinkPredictor {
+class LocationCategoryLP : public LinkPredictor {
 	private:
+            double maxEntropy;
 	protected:
 	public:
-		AdamicAdarEntropyLP( const Network& );
-		~AdamicAdarEntropyLP();
+		LocationCategoryLP( const Network& );
+		LocationCategoryLP( const Network&, double );
+		~LocationCategoryLP();
+		void setMaxEntropy(double);
 		virtual double generateScore( index_v, index_v );
 };
 
-#endif // ADAMICADARENTROPYLP_H_INCLUDED
+
+#endif // LOCATIONCATEGORYLP_H_INCLUDED
