@@ -1,6 +1,6 @@
 /*
 ------------------------------------------------
-Copyright (C) 2016-2017 by Jorge C. Valverde-Rebaza
+Copyright (C) 2016-2019 by Jorge C. Valverde-Rebaza
 This file is part of Geo-LPsource.
 
 The code to calculate this link prediction measure is based on the paper [2].
