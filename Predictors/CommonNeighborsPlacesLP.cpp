@@ -18,16 +18,16 @@ have received a copy of the GNU General Public License along with Geo-LPsource. 
 */
 
 
-#include "CommonNeighborsOfPlacesLP.h"
+#include "CommonNeighborsPlacesLP.h"
 
-CommonNeighborsOfPlacesLP::CommonNeighborsOfPlacesLP( const Network& network ): LinkPredictor(network) {
+CommonNeighborsPlacesLP::CommonNeighborsPlacesLP( const Network& network ): LinkPredictor(network) {
 }
 
-CommonNeighborsOfPlacesLP::~CommonNeighborsOfPlacesLP() {
+CommonNeighborsPlacesLP::~CommonNeighborsPlacesLP() {
 }
 
 
-double CommonNeighborsOfPlacesLP::generateScore( index_v indexVertex1, index_v indexVertex2 ) {
+double CommonNeighborsPlacesLP::generateScore( index_v indexVertex1, index_v indexVertex2 ) {
     double cnp = 0.0;
     vector<index_v> vCommonFriends = network.intersect(network.getNeighbors(indexVertex1), network.getNeighbors(indexVertex2));
 
