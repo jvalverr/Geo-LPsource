@@ -32,7 +32,7 @@ How it works?
 To prepare Geo-LPsource for use, you must execute the makefile file using as follows:
 
 ```
-$ cd Geo-LPsource/
+$ cd Geo-LPsource/ 
 $ make
 ```
 
