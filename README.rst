@@ -52,8 +52,10 @@ As previously mentiones, Geo-LPsource need of two input files to can work. The f
 The second file contains all the check-ins made by each one of the users. Therefore, each line of this file contains the index of the user, the date of the check-in, latitude and longitude of the location where the check-in was made, and the label of the check-in. The labels of the check-ins start from 0. An example of the format of this file can be found in data/MyNetwork_checkins.txt.
 
 
-References
+Citing
 ==========
+
+If you find Geo-LPsource useful in your research/work, we ask you cite the following papers:
 
 .. [1] Valverde-Rebaza J., Roche M., Poncelet P. and Lopes A.: Exploiting Social and Mobility Patterns for Friendship Prediction in Location-Based Social Networks. In The 23rd International Conference on Pattern Recognition (ICPR), 2016, pp. 2526-2531.
 
