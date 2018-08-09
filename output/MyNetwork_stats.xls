@@ -1,0 +1,25 @@
+
+
+General information
+Number of users 	 |V| 	14
+Number of links 	 |E| 	39
+Average number of friends per user 	 - 	5
+Max number of friends per user 	 - 	8
+
+Structural information
+Average degree             	 <k> 	5.57143
+Clustering coefficient 	 C 	0.366837
+Assortativity coefficient 	 r 	-0.188292
+Heterogeneity 	 H 	1.08613
+
+Location information
+Number of check-ins 	 - 	533
+Number of users with >=1 check-ins  	 - 	14
+Average number of check-ins per user 	 - 	38
+Max number of check-ins from all users 	 - 	89
+Number of total places  	 - 	27
+Average of check-ins per place       	 - 	19
+Average entropy of places 	 - 	0.419582
+Min entropy of places 	 - 	0
+Max entropy of places 	 - 	0.658871
+Max diversity of places 	 - 	1.93261
