@@ -10,7 +10,7 @@ Geo-LPsource is free software: you can redistribute it and/or modify it under th
 
 About
 =====
-Geo-LPsource is a link prediction framework built for work over Location-based Social Networks (LBSNs). Geo-LPsource implements different link prediction methods from the literature aiming predict different types of new relationships among users, locations and other objects in LBSNs. Considering the context of friendship prediction, we also implement some innovative methods based on combine social and mobility patterns, such as: Within and Outside of Common Places (WOCP), Common Neighbors of Places (CNP), and Total and Partial Overlapping of Places (TPOP), which are published by [1]_.
+Geo-LPsource is a link prediction framework built for work over Location-based Social Networks (LBSNs). Geo-LPsource implements different link prediction methods from the literature. Link prediction methods aim to predict different types of new relationships among users, locations and other objects in LBSNs. Considering the context of friendship prediction, we also implement some innovative methods based on combine social and mobility patterns, such as: Within and Outside of Common Places (WOCP), Common Neighbors of Places (CNP), and Total and Partial Overlapping of Places (TPOP), which are defined in [1]_ , and Check-in observation (ChO), Check-in allocation (ChA), Friendship allocation within common places (FAW), Common neighbors of nearby places (CNNP), and Nearby distance allocation (NDA), which are defined in [2]_
 
 As it works
 ============
@@ -34,4 +34,9 @@ The second file contains all the check-ins made by each one of the users. Theref
 References
 ==========
 
-.. [1] Valverde-Rebaza J., Roche M., Poncelet P. and Lopes A.: Exploiting Social and Mobility Patterns for Friendship Prediction in Location-Based Social Networks. In The 23rd International Conference on Pattern Recognition (ICPR 2016). To be published.
+.. [1] Valverde-Rebaza J., Roche M., Poncelet P. and Lopes A.: Exploiting Social and Mobility Patterns for Friendship Prediction in Location-Based Social Networks. In The 23rd International Conference on Pattern Recognition (ICPR), 2016, pp. 2526-2531.
+
+.. [2] Valverde-Rebaza J., Roche M., Poncelet P. and Lopes A.: The role of location and social strength for friendship prediction in
+location-based social networks. Information Processing and Management, vol. 54, 2018, pp. 475–489.
+
+
