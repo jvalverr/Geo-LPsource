@@ -10,9 +10,24 @@ Geo-LPsource is free software: you can redistribute it and/or modify it under th
 
 About
 =====
-Geo-LPsource is a link prediction framework built for work over Location-based Social Networks (LBSNs). Geo-LPsource implements different link prediction methods from the literature. Link prediction methods aim to predict different types of new relationships among users, locations and other objects in LBSNs. Considering the context of friendship prediction, we also implement some innovative methods based on combine social and mobility patterns, such as: Within and Outside of Common Places (WOCP), Common Neighbors of Places (CNP), and Total and Partial Overlapping of Places (TPOP), which are defined in [1]_ , and Check-in observation (ChO), Check-in allocation (ChA), Friendship allocation within common places (FAW), Common neighbors of nearby places (CNNP), and Nearby distance allocation (NDA), which are defined in [2]_
+Geo-LPsource is a link prediction framework built for work over Location-based Social Networks (LBSNs). Geo-LPsource implements different link prediction methods from the literature. Link prediction methods aim to predict different types of new relationships among users, locations and other objects in LBSNs. 
 
-As it works
+Considering the context of friendship prediction, we also implement some innovative methods based on combine social and mobility patterns, defined in [1]_ :
+
+    * Within and Outside of Common Places (WOCP)
+    * Common Neighbors of Places (CNP)
+    * Total and Partial Overlapping of Places (TPOP)
+    
+Also, we implement friendship prediction methods defined in [2]_ :
+   
+   * Check-in observation (ChO)
+   * Check-in allocation (ChA)
+   * Friendship allocation within common places (FAW)
+   * Common neighbors of nearby places (CNNP)
+   * Nearby distance allocation (NDA)
+  
+
+How it works?
 ============
 To build Geo-LPsource and prepare it for use, you must execute the Makefile file using the command 'make'. This will compile all the components of Geo-LPsource framework. After this process completes without errors, you can make use of the Geo-LPsource binary saved into the root directory with the name "bin".
 
