@@ -29,14 +29,27 @@ Also, we implement friendship prediction methods defined in [2]_ :
 
 How it works?
 ============
-To prepare Geo-LPsource for use, you must execute the makefile file using as follows:
+To prepare Geo-LPsource for use, you must execute the makefile as follows:
 
 ```
 $ cd Geo-LPsource/ 
 $ make
 ```
 
-This will compile all the components of Geo-LPsource framework. After this process completes without errors, you can make use of the Geo-LPsource binary saved into the root directory with the name "bin".
+This will compile all the components of Geo-LPsource framework. After this process completes without errors, you can make use of the Geo-LPsource binary saved into the root directory with the name bin as follows:
+
+```
+$ cd Geo-LPsource/bin/ 
+$ ./bin
+```
+
+If you will execute large-scale networks, you can used the command nohup as follows:
+
+```
+$ cd Geo-LPsource/ 
+$ nohup ./bin > geo-lpsource.log &
+```
+
 
 The following steps describe the process to quickly use the automated build system for link prediction on sample data sets:
 
