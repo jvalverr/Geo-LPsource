@@ -36,7 +36,6 @@ References
 
 .. [1] Valverde-Rebaza J., Roche M., Poncelet P. and Lopes A.: Exploiting Social and Mobility Patterns for Friendship Prediction in Location-Based Social Networks. In The 23rd International Conference on Pattern Recognition (ICPR), 2016, pp. 2526-2531.
 
-.. [2] Valverde-Rebaza J., Roche M., Poncelet P. and Lopes A.: The role of location and social strength for friendship prediction in
-location-based social networks. Information Processing and Management, vol. 54, 2018, pp. 475–489.
+.. [2] Valverde-Rebaza J., Roche M., Poncelet P. and Lopes A.: The role of location and social strength for friendship prediction in location-based social networks. Information Processing and Management, vol. 54, 2018, pp. 475–489.
 
 
