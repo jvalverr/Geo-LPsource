@@ -32,9 +32,7 @@ How it works?
 To build Geo-LPsource and prepare it for use, you must execute the Makefile file using the command 'make'.
 
 ```
-
 $ make
-
 ```
 
 This will compile all the components of Geo-LPsource framework. After this process completes without errors, you can make use of the Geo-LPsource binary saved into the root directory with the name "bin".
