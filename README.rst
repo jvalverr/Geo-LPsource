@@ -29,10 +29,10 @@ Also, we implement friendship prediction methods defined in [2]_ :
 
 How it works?
 ============
-To prepare Geo-LPsource for use, you must execute the makefile file using the command 'make'.
+To prepare Geo-LPsource for use, you must execute the makefile file using as follow.
 
 ```
-$ cd Geo-LPsource
+$ cd Geo-LPsource/
 $ make
 ```
 
