@@ -1,7 +1,6 @@
 /*
 ------------------------------------------------
-Copyright (C) 2016-2017 by Jorge C. Valverde-Rebaza
-Email: jvalverr@icmc.usp.br
+Copyright (C) 2016-2019 by Jorge C. Valverde-Rebaza
 This file is part of Geo-LPsource.
 
 Geo-LPsource is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License
@@ -31,7 +30,22 @@ have received a copy of the GNU General Public License along with Geo-LPsource. 
 //ICPR 2016 author proposals
 #include "../TotalAndPartialOverlappingOfPlacesLP.h"
 #include "../WithinAndOutsideCommonPlacesLP.h"
-#include "../CommonNeighborsOfPlacesLP.h"
+#include "../CommonNeighborsPlacesLP.h"
+
+
+//IPM 2018 state-of-the-art methods
+#include "../AdamicAdarPlacesLP.h"
+#include "../LocationCategoryLP.h"
+#include "../GeodistLP.h"
+#include "../AdjustedHausdorffDistanceLP.h"
+
+//IPM 2018 author proposals
+#include "../CheckInObservationLP.h"
+#include "../CheckInAllocationLP.h"
+#include "../FriendAllocationLP.h"
+#include "../CommonNeighborsNearbyPlacesLP.h"
+#include "../NearbyDistanceAllocationLP.h"
+
 
 using namespace std;
 
@@ -53,6 +67,9 @@ const char* outPath                          = "output/";
 
 //we consider a difference time of one (1) day as default, so, the value of it variable is 0 because comparison is made between days
 threshold DIFF_TIME_VISIT   = 0;
+
+//For CNNP methods (COMMON NEIGHBORS OF NEARBY PLACES) we consider as the maximum distance between two place 1500 meters
+double MAX_DIST_PLACES      = 1500;
 ///////////////////////////////////////
 
 typedef std::numeric_limits< double > dbl;
@@ -80,7 +97,7 @@ void dataSetup(){
     strcat(statFileName, statFile);
     printNetworkStatistics(isLinks, isCheckins, statFileName);
 
-    //for run different friendship prediction methods
+    //run different friendship prediction methods
     char testFileName[250]     = "";
     strcpy(testFileName, outPath);
     strcat(testFileName, testFile);
@@ -142,15 +159,29 @@ void runLinkPredictionMethods(const Network& network, pred_type typeOfPrediction
 vector<string> getFriendshipPredictionMethods(){
     vector<string> listMethods;
 
-    //state of the art methods
+    //state-of-the-art methods
     listMethods.push_back( "Collocations" );
     listMethods.push_back( "CommonLocations" );
     listMethods.push_back( "JaccardPlaces" );
-    listMethods.push_back( "PreferentialAttachmentPlaces" );
     listMethods.push_back( "AdamicAdarEntropy" );
+    listMethods.push_back( "PreferentialAttachmentPlaces" );
+    listMethods.push_back( "AdamicAdarPlaces" );
+    listMethods.push_back( "LocationCategory" );
+    listMethods.push_back( "Geodist" );
+    listMethods.push_back( "AdjustedHausdorffDistance" );
+
+    //author proposals at ICPR2016
     listMethods.push_back( "WithinAndOutsideCommonPlaces" );
-    listMethods.push_back( "CommonNeighborsOfPlaces" );
+    listMethods.push_back( "CommonNeighborsPlaces" );
     listMethods.push_back( "TotalAndPartialOverlappingOfPlaces" );
+
+    //author proposal at IPM 2018
+    listMethods.push_back( "CheckInObservation" );
+    listMethods.push_back( "CheckInAllocation" );
+    listMethods.push_back( "FriendAllocation" );
+    listMethods.push_back( "CommonNeighborsNearbyPlaces" );
+    listMethods.push_back( "NearbyDistanceAllocation" );
+
 
     return listMethods;
 }
@@ -166,7 +197,7 @@ vector<string> getPlacePredictionMethods(){
 void linkPredictionProcess(const char* predictorName, const Network& network, pred_type typeOfPrediction){
     bool predictorExist = true;
     LinkPredictor* predictor;
-    //for friendship prediction
+    //for friendship prediction: state-of-the-art
     if( strcmp( predictorName, "Collocations" ) == 0 ) {
         predictor = new CollocationsLP(network, DIFF_TIME_VISIT);
      }
@@ -182,15 +213,49 @@ void linkPredictionProcess(const char* predictorName, const Network& network, pr
      else if( strcmp( predictorName, "PreferentialAttachmentPlaces" ) == 0 ) {
         predictor = new PreferentialAttachmentPlacesLP(network);
      }
+     else if( strcmp( predictorName, "AdamicAdarPlaces" ) == 0 ) {
+        predictor = new AdamicAdarPlacesLP(network);
+     }
+     else if( strcmp( predictorName, "LocationCategory" ) == 0 ) {
+        double max_entropy_allowed = network.getAverageEntropyOfPlaces();
+        predictor = new LocationCategoryLP(network, max_entropy_allowed);
+     }
+     else if( strcmp( predictorName, "Geodist" ) == 0 ) {
+        predictor = new GeodistLP(network);
+     }
+     else if( strcmp( predictorName, "AdjustedHausdorffDistance" ) == 0 ) {
+        predictor = new AdjustedHausdorffDistanceLP(network);
+     }
+
+     // for friendship prediction: author proposals ICP2016
      else if( strcmp( predictorName, "WithinAndOutsideCommonPlaces" ) == 0 ) {
         predictor = new WithinAndOutsideCommonPlacesLP(network);
      }
-     else if( strcmp( predictorName, "CommonNeighborsOfPlaces" ) == 0 ) {
-        predictor = new CommonNeighborsOfPlacesLP(network);
+     else if( strcmp( predictorName, "CommonNeighborsPlaces" ) == 0 ) {
+        predictor = new CommonNeighborsPlacesLP(network);
      }
      else if( strcmp( predictorName, "TotalAndPartialOverlappingOfPlaces" ) == 0 ) {
         predictor = new TotalAndPartialOverlappingOfPlacesLP(network);
      }
+
+    // for friendship prediction: author proposals IPM 2018
+     else if( strcmp( predictorName, "CheckInObservation" ) == 0 ) {
+        predictor = new CheckInObservationLP(network);
+     }
+     else if( strcmp( predictorName, "CheckInAllocation" ) == 0 ) {
+        predictor = new CheckInAllocationLP(network);
+     }
+     else if( strcmp( predictorName, "FriendAllocation" ) == 0 ) {
+        predictor = new FriendAllocationLP(network);
+     }
+     else if( strcmp( predictorName, "CommonNeighborsNearbyPlaces" ) == 0 ) {
+        predictor = new CommonNeighborsNearbyPlacesLP(network, MAX_DIST_PLACES);
+     }
+     else if( strcmp( predictorName, "NearbyDistanceAllocation" ) == 0 ) {
+        predictor = new NearbyDistanceAllocationLP(network);
+     }
+
+     //for other case
      else{
         cerr << "\n... The predictor " << predictorName << " does not exist";
         predictorExist = false;
