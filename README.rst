@@ -32,21 +32,21 @@ How it works?
 To prepare Geo-LPsource for use, you must execute the makefile as follows:
 
 ``` 
-$ cd Geo-LPsource/
+$ cd Geo-LPsource/<br>
 $ make
 ```
 
 This will compile all the components of Geo-LPsource framework. After this process completes without errors, you can make use of the Geo-LPsource binary saved into the root directory with the name bin as follows:
 
 ```
-$ cd Geo-LPsource/bin/ 
+$ cd Geo-LPsource/bin/
 $ ./bin
 ```
 
-If you will execute large-scale networks, you can use the command nohup as follows:
+Or, if you will execute large-scale networks, you can use the command nohup as follows:
 
 ```
-$ cd Geo-LPsource/ 
+$ cd Geo-LPsource/
 $ nohup ./bin > geo-lpsource.log &
 ```
 
